@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA"
+    tools:context=".ListaPersonagensActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_lista_personagens"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_toolbar_lista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personagens"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="12dp" />
+
+        <ImageButton
+            android:id="@+id/btn_coracao_topbar"
+            android:layout_width="32dp"
+            android:layout_height="48dp"
+            app:srcCompat="@drawable/ic_heart_filled"
+            android:background="@drawable/bg_circular_button"
+            android:backgroundTint="@color/bg_gray"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="18dp"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="11dp" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <LinearLayout
+        android:id="@+id/container_filtros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="12dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_lista_personagens"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintEnabled="false"
+            app:startIconDrawable="@drawable/ic_search"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeColor="#E0E0E0">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_text_buscar_personagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Buscar personagem pelo nome..."
+                android:inputType="text"
+                android:textSize="16sp"
+                android:paddingVertical="12dp"
+                android:backgroundTint="@color/bg_gray" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#E0E0E0"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="-16dp"
+            android:layout_marginEnd="-16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textStyle="bold"
+            android:textColor="#495057"
+            android:layout_marginTop="16dp"
+            android:textSize="14sp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cg_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:singleSelection="true"
+            app:selectionRequired="false">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_alive"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alive"
+                app:chipBackgroundColor="@color/bg_gray"
+                app:chipStrokeColor="#E0E0E0"
+                app:chipStrokeWidth="1dp"
+                app:chipCornerRadius="16dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_dead"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dead"
+                app:chipBackgroundColor="@color/bg_gray"
+                app:chipStrokeColor="#E0E0E0"
+                app:chipStrokeWidth="1dp"
+                app:chipCornerRadius="16dp"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_status_unknown"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unknown"
+                app:chipBackgroundColor="@color/bg_gray"
+                app:chipStrokeColor="#E0E0E0"
+                app:chipStrokeWidth="1dp"
+                app:chipCornerRadius="16dp"/>
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gênero"
+            android:textStyle="bold"
+            android:textColor="#495057"
+            android:layout_marginTop="12dp"
+            android:textSize="14sp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cg_genero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:singleSelection="true"
+            app:selectionRequired="false">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_female"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                app:chipBackgroundColor="@color/bg_gray"
+                app:chipStrokeColor="#E0E0E0"
+                app:chipStrokeWidth="1dp"
+                app:chipCornerRadius="16dp"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_male"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                app:chipBackgroundColor="@color/bg_gray"
+                app:chipStrokeColor="#E0E0E0"
+                app:chipStrokeWidth="1dp"
+                app:chipCornerRadius="16dp"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_genderless"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Genderless"
+                app:chipBackgroundColor="@color/bg_gray"
+                app:chipStrokeColor="#E0E0E0"
+                app:chipStrokeWidth="1dp"
+                app:chipCornerRadius="16dp"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_gender_unknown"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unknown"
+                app:chipBackgroundColor="@color/bg_gray"
+                app:chipStrokeColor="#E0E0E0"
+                app:chipStrokeWidth="1dp"
+                app:chipCornerRadius="16dp"/>
+        </com.google.android.material.chip.ChipGroup>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPersonagens"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="4dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container_filtros"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:listitem="@layout/card_view_item" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/container_filtros"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

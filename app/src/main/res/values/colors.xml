@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg_gray">#F8F9FA</color>
+
+    <color name="bg_top">#EAF5EF</color>
+    <color name="bg_bottom">#F0F9F5</color>
+    <color name="alien_card_top">#6ED597</color>
+    <color name="alien_card_bottom">#3393DE</color>
+
+    <color name="text_dark_title">#1B232D</color>
+    <color name="text_gray_sub">#5A6372</color>
+</resources>
