@@ -4,12 +4,12 @@ Esta é uma aplicação Android desenvolvida em Kotlin que consome a API públic
 
 ## 📋 Índice
 
-- [O Desafio]("App 04: Rick & Morty")
-    - [Funcionalidades Principais]
+- O Desafio: "App 04: Rick & Morty"
+    - Funcionalidades Principais
 
-- [O Meu Processo]
-    - [Tecnologias Utilizadas]
-    - [O que Aprendi]
+- O Meu Processo
+    - Tecnologias Utilizadas
+    - O que Aprendi
 ---
 
 ## 🎯 O Desafio
